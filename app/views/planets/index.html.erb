@@ -1,4 +1,13 @@
 <h1 class="text-center mt-3">star wars universe</h1>
+  <div class="d-flex justify-content-center mt-3">
+    <%= link_to planets_path, class: 'font-awesome-link' do %>
+      <i class="fas fa-globe mr-3 font-awesome" style="<%= "opacity:0.4" if params[:characters] %>"></i>
+    <% end %>
+    |
+    <%= link_to characters_path, class: 'font-awesome-link' do %>
+      <i class="fas fa-user ml-3 font-awesome" style="<%= "opacity:0.4" unless params[:characters] %>"></i>
+    <% end %>
+  </div>
 <!-- <div id="contentContainer" class="trans3d">
   <div id="carouselContainer" class="trans3d planets">>
     <%# @planets.each_with_index do |planet, index| %>

@@ -9,7 +9,7 @@ class CreatePlanets < ActiveRecord::Migration[5.2]
       t.string :gravity
       t.string :terrain
       t.integer :surface_water
-      t.integer :population
+      t.bigint :population
       t.string :url
       t.string :photo
 

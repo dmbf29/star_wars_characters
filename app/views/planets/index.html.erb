@@ -1,0 +1,9 @@
+<h1>planets</h1>
+
+<div class="planets">
+  <% @planets.each do |planet| %>
+    <div class="planet" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path planet.photo, height: 300, width: 300, crop: :fill %>')">
+      <%= planet.name %>
+    </div>
+  <% end %>
+</div>

@@ -16,6 +16,8 @@ gem 'uglifier'
 gem 'webpacker'
 
 # Added
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary', '~> 1.9.1'
 gem 'httparty'
 
 group :development do

@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_11_05_122215) do
     t.string "gravity"
     t.string "terrain"
     t.integer "surface_water"
-    t.integer "population"
+    t.bigint "population"
     t.string "url"
     t.string "photo"
     t.datetime "created_at", null: false

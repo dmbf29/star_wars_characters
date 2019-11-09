@@ -6,7 +6,7 @@ namespace :planet do
       next if planet.photo.present?
 
       if planet_exceptions.include?(planet.name)
-        handle_exception_for(planet)
+        handle_planet_exception_for(planet)
       else
         url =  URI.encode("https://starwars.fandom.com/wiki/#{planet.name.gsub("\"", "'").gsub(" ", "_")}")
         begin
@@ -38,7 +38,7 @@ namespace :planet do
     end
   end
 
-  def handle_exception_for(planet)
+  def handle_planet_exception_for(planet)
     planets = {
       'Ojom' => 'https://vignette.wikia.nocookie.net/starwars/images/9/9f/Ojom.jpg/revision/latest?cb=20061119201000',
       'Zolan' => 'https://vignette.wikia.nocookie.net/starwars/images/6/66/Zolan.jpg/revision/latest?cb=20070701111500',

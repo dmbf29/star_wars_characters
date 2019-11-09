@@ -6,11 +6,13 @@ $body-font: "Open Sans", "Helvetica", "sans-serif";
 $headers-font: "Raleway", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Star Jedi";
+  src: font-url('Starjedi.eot');
+  src: font-url('Starjedi.eot?#iefix') format('embedded-opentype'),
+       font-url('Starjedi.woff') format('woff'),
+       font-url('Starjedi.ttf') format('truetype')
+}
+
+$my-font: "Star Jedi";
+

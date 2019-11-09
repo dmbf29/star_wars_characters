@@ -1,7 +1,7 @@
 namespace :planet do
   desc "Scrapes starwars.fandom.com for photos"
   task fetch_photos: :environment do
-    planet_exceptions = ['Ojom', 'Zolan', 'Tholoth', 'Aleen Minor', 'Stewjon']
+    planet_exceptions = ['Ojom', 'Zolan', 'Tholoth', 'Aleen Minor', 'Stewjon', 'unknown']
     Planet.find_each do |planet|
       next if planet.photo.present?
 

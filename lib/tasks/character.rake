@@ -1,7 +1,7 @@
 namespace :character do
   desc "Scrapes starwars.fandom.com for character photos"
   task fetch_photos: :environment do
-    planet_exceptions = []
+    character_exceptions = ['Ayla Secura', 'Wicket Systri Warrick', 'Beru Whitesun lars']
     Character.find_each do |character|
       next if character.photo.present?
 
@@ -39,9 +39,16 @@ namespace :character do
   end
 
   def handle_exception_for(character)
-    characters = {}
+    characters = {
+     'Ayla Secura' => 'https://starwars.fandom.com/wiki/Aayla_Secura',
+     'Wicket Systri' => 'https://starwars.fandom.com/wiki/Wicket_Wystri_Warrick',
+     'Beru Whitesun' => 'https://starwars.fandom.com/wiki/Beru_Whitesun_Lars'
+    }
     puts "Handling exception for #{character.name}"
-    character.remote_photo_url = characters[character.name]
+    html_doc = Nokogiri.HTML(open(characters[character]).read)
+    photo_div = html_doc.search('#mw-content-text .pi-background').first
+    photo_img_tag = photo_div.search('img').first
+    character.remote_photo_url = photo_img_tag.attributes['src'].value
     character.save
   end
 

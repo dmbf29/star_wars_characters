@@ -70,6 +70,16 @@
           </ul>
           <%= cl_image_tag planet.photo %>
         </div>
+        <div class="container">
+          <div class="d-flex mx-3 flex-wrap">
+            <% planet.characters.each do |character| %>
+              <div class="mx-1" style="text-align: center;">
+                <%= cl_image_tag character.photo, class: 'avatar avatar-large' %>
+                <p><%= character.name %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -12,7 +12,7 @@
 <div id="contentContainer" class="trans3d">
   <section id="carouselContainer" class="trans3d">
     <% @characters.each_with_index do |character, index| %>
-      <figure id="item<%= index + 1 %>" class="planet trans3d" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path character.photo, height: 300, width: 300, crop: :fill %>')">
+      <figure id="item<%= index + 1 %>" class="planet trans3d" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path character.photo, height: 300, width: 300, crop: :fill %>')" data-toggle="modal" data-target="#modal-<%= character.id %>">
         <div class="planetInner trans3d">
           <%= character.name.downcase %>
         </div>
@@ -20,3 +20,46 @@
     <% end %>
   </section>
 </div>
+
+<% @characters.each_with_index do |character, index| %>
+  <div class="modal fade" id="modal-<%= character.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="z-index: 99999999999999999999999;">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content" style="background-color:black">
+        <div class="modal-header" style='border-bottom:none'>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" style="color:white">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body d-flex align-items-center justify-content-between">
+            <ul>
+              <h2 class="modal-title" id="exampleModalLabel"><%= character.name %></h2>
+              <li>
+                Hair Color: <%= character.hair_color %>
+              </li>
+              <li>
+                Skin Color: <%= character.skin_color %>
+              </li>
+              <li>
+                Eye Color: <%= character.eye_color %>
+              </li>
+              <li>
+                Gender: <%= character.gender %>
+              </li>
+              <li>
+                Height: <%= character.height %>
+              </li>
+              <li>
+                Mass: <%= character.mass %>
+              </li>
+              <li>
+                Birth Year: <%= character.birth_year %>
+              </li>
+            </ul>
+            <%= cl_image_tag character.photo %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

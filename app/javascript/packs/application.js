@@ -100,3 +100,11 @@ function looper() {
 function getRandomInt( $n ) {
   return Math.floor((Math.random()*$n)+1);
 }
+
+document.querySelectorAll('.arrow-btn').forEach((button) => {
+  button.addEventListener('click', (event) => {
+    onMouseMove(event);
+  })
+})
+
+
